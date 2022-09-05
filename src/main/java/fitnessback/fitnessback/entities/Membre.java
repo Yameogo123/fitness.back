@@ -1,6 +1,7 @@
 package fitnessback.fitnessback.entities;
 
 import lombok.Data;
+import org.w3c.dom.Text;
 
 import javax.persistence.*;
 import java.sql.Blob;
@@ -32,5 +33,5 @@ public class Membre {
     private boolean confirmation;
 
     @Column(name="qrcode", length = 65000)
-    private String qrcode;
+    private Blob qrcode;
 }
