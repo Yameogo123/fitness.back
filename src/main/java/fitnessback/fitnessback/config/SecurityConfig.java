@@ -42,9 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/login/**", "/logout").permitAll()
                 .and()
                     .authorizeRequests()
-                    .antMatchers(GET, "/user/*", "/album/*", "/playlist/*", "/music/*").hasAnyAuthority("ADMIN", "ARTIST", "USER")
-                    .antMatchers(PUT, "/user/*", "/playlist/*", "/album/*", "/music/*").hasAnyAuthority("ADMIN", "ARTIST", "USER")
-                    .antMatchers(POST, "/user/*", "/playlist/*").hasAnyAuthority("ADMIN")
+                    .antMatchers(GET, "/user/*", "/member/*", "/contact/*").authenticated()
+                    .antMatchers(PUT, "/user/*", "/member/*", "/contact/*").authenticated()
+                    .antMatchers(POST, "/user/*", "/member/*", "/contact/*").authenticated()
                     .antMatchers(DELETE, "/user/*").hasAnyAuthority("ADMIN", "ARTIST");
         http
                 .authorizeRequests().anyRequest().authenticated()
