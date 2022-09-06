@@ -32,6 +32,6 @@ public class Membre {
     @Column(name = "confirmation")
     private boolean confirmation;
 
-    @Column(name="qrcode", length = 65000)
+    @Column(name="qrcode")
     private Blob qrcode;
 }
