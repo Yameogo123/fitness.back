@@ -35,11 +35,11 @@ public class MemberController {
     @ResponseBody
     public String info(@PathVariable Long id){
         Membre member= membreService.oneById(id);
-        String result= "nom :"+member.getNom()+ "\n téléphone"+member.getTel() ;
+        String result= "nom : "+ member.getNom()+ "\ntéléphone: "+member.getTel() ;
         if(member.getFinInscription().isAfter(LocalDate.now())){
-            result= result + "\n valide";
+            result= result + "\nabonnement valide";
         }else{
-            result= result + "\n expiré";
+            result= result + "\nabonnement expiré";
         }
         return result;
     }
