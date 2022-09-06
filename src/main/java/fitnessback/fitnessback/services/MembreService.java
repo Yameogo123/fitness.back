@@ -15,10 +15,7 @@ public class MembreService {
     private MembreRepository membreRepository;
 
     public Membre newMember(Membre membre){
-        LocalDate date= LocalDate.now().plusDays(1);
-        if(membre.getType()=="mensuel"){
-            date= LocalDate.now().plusMonths(1);
-        }
+        date= LocalDate.now().plusMonths(1);
         membre.setFinInscription(date);
         return membreRepository.saveAndFlush(membre);
     }
