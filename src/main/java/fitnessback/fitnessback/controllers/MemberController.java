@@ -29,5 +29,17 @@ public class MemberController {
     public Membre nouveau(@RequestBody Membre membre){
         return membreService.newMember(membre);
     }
+    
+    @GetMapping("/{id}")
+    public String info(@PathVariable Long id){
+        Membre member= membreService.oneById(id);
+        String result= "nom :"+member.getNom()+ "\n téléphone"+member.getTel() ;
+        if(member.getFinInscription().isAfter(LocalDate.now())){
+            result= result + "\n valide";
+        }else{
+            result= result + "\n expiré";
+        }
+        return result;
+    }
 
 }
