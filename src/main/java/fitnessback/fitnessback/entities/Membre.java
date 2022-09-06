@@ -33,5 +33,5 @@ public class Membre {
     private boolean confirmation;
 
     @Column(name="qrcode")
-    private Blob qrcode;
+    private String qrcode;
 }
