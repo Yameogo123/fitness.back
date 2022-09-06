@@ -30,4 +30,8 @@ public class MembreService {
     public List<Membre> allMember(){
         return membreRepository.findAll();
     }
+    
+    public Membre oneById(Long id){
+        return membreRepository.findById(id).get();
+    }
 }
