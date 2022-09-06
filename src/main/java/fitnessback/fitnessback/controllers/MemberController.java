@@ -31,6 +31,7 @@ public class MemberController {
     }
     
     @GetMapping("/{id}")
+    @ResponseBody
     public String info(@PathVariable Long id){
         Membre member= membreService.oneById(id);
         String result= "nom :"+member.getNom()+ "\n téléphone"+member.getTel() ;
