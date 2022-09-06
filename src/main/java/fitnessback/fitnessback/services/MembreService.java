@@ -15,7 +15,7 @@ public class MembreService {
     private MembreRepository membreRepository;
 
     public Membre newMember(Membre membre){
-        date= LocalDate.now().plusMonths(1);
+        LocalDate date= LocalDate.now().plusMonths(1);
         membre.setFinInscription(date);
         return membreRepository.saveAndFlush(membre);
     }
