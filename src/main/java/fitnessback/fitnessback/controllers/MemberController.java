@@ -31,6 +31,13 @@ public class MemberController {
         return membreService.newMember(membre);
     }
     
+    @PutMapping("/renouveler/{id}")
+    public Membre renouveler(@PathVariable Long id){
+        Membre member= membreService.oneById(id);
+        member.setFinInscription(LocalDate.now().plusMonths(1));
+        return membreService.updateMembre(member);
+    }
+    
     @GetMapping("/{id}")
     @ResponseBody
     public String info(@PathVariable Long id){
