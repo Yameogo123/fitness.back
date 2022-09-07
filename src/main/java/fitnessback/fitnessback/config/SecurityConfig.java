@@ -39,12 +39,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/login/**", "/logout", "/membre/*").permitAll()
+                    .antMatchers("/login/**", "/logout", "/membre/*", "/contact/*").permitAll()
             .and()
                     .authorizeRequests()
-                    .antMatchers(GET, "/user/*", "/contact/*").authenticated()
-                    .antMatchers(PUT, "/user/*", "/contact/*").authenticated()
-                    .antMatchers(POST, "/user/*", "/contact/*").authenticated()
+                    .antMatchers(GET, "/user/*").authenticated()
+                    .antMatchers(PUT, "/user/*").authenticated()
+                    .antMatchers(POST, "/user/*").authenticated()
                     .antMatchers(DELETE, "/user/*").hasAnyAuthority("ADMIN");
         http
                 .authorizeRequests().anyRequest().authenticated()
