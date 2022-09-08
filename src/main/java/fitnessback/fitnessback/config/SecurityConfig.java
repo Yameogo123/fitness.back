@@ -49,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers(POST, "/user/*").authenticated()
                     .antMatchers(DELETE, "/user/*").hasAnyAuthority("ADMIN");
         http
-                //.authorizeRequests().anyRequest().authenticated()
-                //.and()
+                .authorizeRequests().anyRequest().authenticated()
+                .and()
                     .addFilter(customAuthenticationFilter)
                     .addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
         http
